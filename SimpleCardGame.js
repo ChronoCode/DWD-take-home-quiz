@@ -46,16 +46,21 @@ Player.prototype.drawCard = function (deck) {
 
   this.hand.push(newCard);
 
-  this.hand.sort((a, b) => {
-    let suitIndexA = suits.indexOf(a.suit);
-    let suitIndexB = suits.indexOf(b.suit);
+  // sort only if hand is full
+  if (this.hand.length === 5) {
+    this.hand.sort((a, b) => {
+      let suitIndexA = suits.indexOf(a.suit);
+      let suitIndexB = suits.indexOf(b.suit);
 
-    if (suitIndexA < suitIndexB) {
-      return -1;
-    } else {
-      return a.value - b.value;
-    }
-  });
+      if (suitIndexA < suitIndexB) {
+        return -1;
+      } else if (suitIndexA > suitIndexB) {
+        return 1;
+      } else {
+        return a.value - b.value;
+      }
+    });
+  }
 }
 
 Player.prototype.displayHand = function () {
@@ -78,9 +83,10 @@ newDeck.shuffle();
 // generates random number from 2 to 6
 let numOfPlayers = Math.floor(Math.random() * 5) + 2;
 
+
 let players = [];
 for (let i = 1; i <= numOfPlayers; i++) {
-  let currentPlayer = new Player('Player' + i);
+  let currentPlayer = new Player('Player ' + i);
   players.push(currentPlayer);
 }
 
