@@ -22,7 +22,6 @@ Deck.prototype.initialize = function () {
 }
 
 Deck.prototype.shuffle = function () {
-
   // replaces each card (except last card) in position i with
   // a card that is in a later position
   for (let i = 0; i < this.cards.length - 2; i++) {
@@ -31,7 +30,6 @@ Deck.prototype.shuffle = function () {
     this.cards[i] = this.cards[j];
     this.cards[j] = temp;
   }
-
 }
 
 const Player = function (name) {
