@@ -1,0 +1,176 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  width: 70%;
+}
+
+.startScreen, .endScreen, .gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 90px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.score {
+  font-size: 30px;
+  margin: 1vh;
+  text-align: center;
+}
+
+.finalScore {
+  font-size: 35px;
+  margin: 1vh;
+  text-align: center;
+}
+
+.question {
+  font-size: 25px;
+  text-align: center;
+  width: 90%;
+}
+
+.answersBox {
+  width: 90%;
+}
+
+.answersLine1, .answersLine2 {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5%;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+}
+
+.answer {
+  font-size: 25px;
+  background-image: url('../assets/answer-unselected.png');
+  background-size: 100% 100%;
+  height: 12vh;
+  width: 40%;
+}
+
+.answer:hover {
+  background-image: url('../assets/answer-selected.png');
+  background-size: 100% 100%;
+  color: white;
+}
+
+.playButton {
+  background-image: url('../assets/play-button.png');
+  background-size: 100% 100%;
+  margin-top: 5vh;
+  border-radius: 10px;
+  height: 10vh;
+  width: 30%;
+}
+
+.playAgainButton {
+  background-image: url('../assets/play-again-orange.png');
+  background-size: 100% 100%;
+  height: 10vh;
+  width: 30%;
+}
+
+.playAgainButton:hover {
+  background-image: url('../assets/play-again-green.png');
+}
+
+.nextButton {
+  font-size: 30px;
+  background-image: url('../assets/green-button.png');
+  background-size: 100% 100%;
+  color: white;
+  height: 10vh;
+  width: 20%;
+}
+
+.correct, .incorrect {
+  background-size: 100% 100%;
+  height: 10vh;
+  width: 40%;
+}
+
+.correct {
+  background-image: url('../assets/correct.png');
+}
+
+.incorrect {
+  background-image: url('../assets/incorrect.png');
+}
+
+@media (max-width: 1000px) {
+  /* For mobile phones: */
+  #app {
+    margin-top: 1vh;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 100px;
+  }
+
+  .playButton {
+    margin-top: 5vh;
+    height: 10vh;
+    width: 80%;
+  }
+
+  .score {
+    font-size: 50px;
+    width: 50%;
+  }
+
+  .finalScore {
+    margin: 3vh;
+    font-size: 60px;
+    width: 50%;
+  }
+
+  .correct, .incorrect {
+    margin: 0;
+  }
+
+  .question {
+    max-height: 7vh;
+    margin-top: 1vh;
+    font-size: 50px;
+  }
+
+  .answersLine1, .answersLine2 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .answer {
+    width: 70%;
+    height: 10vh;
+    font-size: 50px;
+    margin-bottom: 2vh;
+  }
+
+  .nextButton {
+    font-size: 60px;
+    height: 12vh;
+    width: 80%;
+  }
+
+  .playAgainButton {
+    margin-top: 2vh;
+    height: 10vh;
+    width: 80%;
+    border-radius: 10px;
+  }
+}
