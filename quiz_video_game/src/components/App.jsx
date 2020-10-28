@@ -113,7 +113,7 @@ class App extends React.Component {
         currentAnswers = this.shuffleAnswers(currentQId);
       } else if (this.state.correct) {
         correctMessage = <div className='correct'>
-          <audio src={correct_sound} autoPlay />
+          <audio src={correct_sound} autoPlay/>
         </div>;
         nextButton = (
           <button
@@ -125,7 +125,7 @@ class App extends React.Component {
         );
       } else {
         correctMessage = <div className='incorrect'>
-          <audio src={incorrect_sound} autoPlay />
+          <audio src={incorrect_sound} autoPlay/>
         </div>;
         nextButton = (
           <button
@@ -146,28 +146,32 @@ class App extends React.Component {
           <div className='answersBox'>
             <div className='answersLine1'>
               <button
-                className='answer'
-                onClick={this.state.correct === null ? () => this.sendAnswer(currentQId, currentAnswers[0].id, currentAnswers) : null}
+                className={'answer ' + (this.state.correct !== null ? 'disabled' : '')}
+                disabled={this.state.correct !== null}
+                onClick={() => this.sendAnswer(currentQId, currentAnswers[0].id, currentAnswers)}
               >
                 {currentAnswers[0].text}
               </button>
               <button
-                className='answer'
-                onClick={this.state.correct === null ? () => this.sendAnswer(currentQId, currentAnswers[1].id, currentAnswers) : null}
+                className={'answer ' + (this.state.correct !== null ? 'disabled' : '')}
+                disabled={this.state.correct !== null}
+                onClick={() => this.sendAnswer(currentQId, currentAnswers[1].id, currentAnswers)}
               >
                 {currentAnswers[1].text}
               </button>
             </div>
             <div className='answersLine2'>
               <button
-                className='answer'
-                onClick={this.state.correct === null ? () => this.sendAnswer(currentQId, currentAnswers[2].id, currentAnswers) : null}
+                className={'answer ' + (this.state.correct !== null ? 'disabled' : '')}
+                disabled={this.state.correct !== null}
+                onClick={() => this.sendAnswer(currentQId, currentAnswers[2].id, currentAnswers)}
               >
                 {currentAnswers[2].text}
               </button>
               <button
-                className='answer'
-                onClick={this.state.correct === null ? () => this.sendAnswer(currentQId, currentAnswers[3].id, currentAnswers) : null}
+                className={'answer ' + (this.state.correct !== null ? 'disabled' : '')}
+                disabled={this.state.correct !== null}
+                onClick={() => this.sendAnswer(currentQId, currentAnswers[3].id, currentAnswers)}
               >
                 {currentAnswers[3].text}
               </button>

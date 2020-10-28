@@ -66,6 +66,11 @@ button {
   color: white;
 }
 
+.disabled:hover {
+  background-image: url('../assets/answer-unselected.png');
+  color: rgb(170, 170, 170);
+}
+
 .playButton {
   background-image: url('../assets/play-button.png');
   background-size: 100% 100%;
