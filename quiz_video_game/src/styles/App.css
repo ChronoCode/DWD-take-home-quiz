@@ -68,7 +68,7 @@ button {
 
 .disabled:hover {
   background-image: url('../assets/answer-unselected.png');
-  color: rgb(170, 170, 170);
+  color: rgba(170, 170, 170, 0.9);
 }
 
 .playButton {
