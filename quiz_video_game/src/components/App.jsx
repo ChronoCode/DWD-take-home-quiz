@@ -146,6 +146,7 @@ class App extends React.Component {
           <div className='answersBox'>
             <div className='answersLine1'>
               <button
+                // following line "disables" hover effects when answer has been given
                 className={'answer ' + (this.state.correct !== null ? 'disabled' : '')}
                 disabled={this.state.correct !== null}
                 onClick={() => this.sendAnswer(currentQId, currentAnswers[0].id, currentAnswers)}
