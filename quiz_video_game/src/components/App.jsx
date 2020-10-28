@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 
 import '../styles/App.css';
+import correct_sound from '../assets/Correct_Answer_Sound_Effect.mp3';
+import incorrect_sound from '../assets/Buzzer_Wrong_Answer.mp3';
 
 class App extends React.Component {
   constructor() {
@@ -110,7 +112,9 @@ class App extends React.Component {
         currentQId = this.selectRandomQuestion();
         currentAnswers = this.shuffleAnswers(currentQId);
       } else if (this.state.correct) {
-        correctMessage = <div className='correct'></div>;
+        correctMessage = <div className='correct'>
+          <audio src={correct_sound} autoPlay />
+        </div>;
         nextButton = (
           <button
             className='nextButton'
@@ -120,7 +124,9 @@ class App extends React.Component {
           </button>
         );
       } else {
-        correctMessage = <div className='incorrect'></div>;
+        correctMessage = <div className='incorrect'>
+          <audio src={incorrect_sound} autoPlay />
+        </div>;
         nextButton = (
           <button
             className='nextButton'
