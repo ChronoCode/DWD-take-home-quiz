@@ -80,8 +80,9 @@ class App extends React.Component {
 
   render() {
     const questions = this.state.questions;
+    const numberOfQuestions = Object.keys(questions).length;
 
-    if (Object.keys(questions).length === 0) {
+    if (numberOfQuestions === 0) {
       return (
         <div className='startScreen'>
           <h1 className='title'>Quiz Game</h1>
@@ -92,10 +93,29 @@ class App extends React.Component {
         </div>
       );
     } else if (this.state.unusedQuestions.length === 0) {
+      let completion_message = '';
+      const grade = this.state.score / numberOfQuestions;
+      if (grade === 0) {
+        completion_message = 'You were trying to get all of these wrong right?';
+      } else if (grade > 0 && grade <= 0.2) {
+        completion_message = 'Statistically worse than guessing.';
+      } else if (grade > 0.2 && grade <= 0.5) {
+        completion_message = 'Well ... you tried. :)';
+      } else if (grade > 0.5 && grade <= 0.7) {
+        completion_message = 'Not Bad!';
+      } else if (grade > 0.7 && grade <= 0.9) {
+        completion_message = 'Nice Job, you know your stuff!';
+      } else if (grade > 0.9 && grade < 1) {
+        completion_message = 'Wow, so close to perfect!';
+      } else {
+        completion_message = 'Perfect Score! You are the master of Video Game History!';
+      }
+
       return (
         <div className='endScreen'>
           <h1 className='title'>Quiz Game</h1>
-          <h2 className='finalScore'>Final Score: {this.state.score}</h2>
+          <h2 className='finalScore'>Final Score: {this.state.score}/{numberOfQuestions}</h2>
+          <h3 className='finalMessage'>{completion_message}</h3>
           <button
             className='playAgainButton'
             onClick={this.getQuestions.bind(this)}
@@ -113,7 +133,7 @@ class App extends React.Component {
         currentAnswers = this.shuffleAnswers(currentQId);
       } else if (this.state.correct) {
         correctMessage = <div className='correct'>
-          <audio src={correct_sound} autoPlay/>
+          <audio src={correct_sound} autoPlay />
         </div>;
         nextButton = (
           <button
@@ -125,7 +145,7 @@ class App extends React.Component {
         );
       } else {
         correctMessage = <div className='incorrect'>
-          <audio src={incorrect_sound} autoPlay/>
+          <audio src={incorrect_sound} autoPlay />
         </div>;
         nextButton = (
           <button
